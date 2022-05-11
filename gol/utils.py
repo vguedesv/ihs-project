@@ -117,6 +117,7 @@ def setDisplay(side, num):
         ioctl(fd, WR_L_DISPLAY)
         retval = os.write(fd, data.to_bytes(4, 'little'))
     else:
+        data = 0xFFFFFFFF
         ioctl(fd, WR_R_DISPLAY)
         retval = os.write(fd, data.to_bytes(4, 'little'))
 
