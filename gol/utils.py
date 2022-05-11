@@ -76,7 +76,7 @@ def readButtons():
 
 def setDisplay(side, num):
     if(side is 'left'):
-        algs = num.split()
+        algs = num.split('')
         print(algs)
         dataString = algs[0] + algs[1] + algs[2] + algs[3]
         data = hex(dataString)
