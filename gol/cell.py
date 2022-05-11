@@ -1,8 +1,3 @@
-'''
-Game of Life
-Cell class
-Martin A. Aaberge
-'''
 
 class Cell:
     def __init__(self):

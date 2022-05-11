@@ -1,13 +1,8 @@
-'''
-Game of Life
-Board Class
-Martin A. Aaberge
-'''
 
 from cell import Cell
 from random import randint
 import keyboard
-# from utils import readButtons
+from utils import readButtons
 
 class Board:
     def __init__(self , rows , columns):

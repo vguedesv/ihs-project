@@ -5,6 +5,7 @@ from ioctl_cmds import *
 fd = os.open('/dev/mydev', os.O_RDWR) #substituir pelo caminho do arquivo
 
 def readButtons():
+    print('estou na readButtons')
     ioctl(fd, RD_PBUTTONS)
     red = os.read(fd, 4); # read 4 bytes and store in red var
     pressedButton  = int.from_bytes(red, 'little')
@@ -20,8 +21,4 @@ def readButtons():
         case _:
             return ''
 
-    print(red)
 
-
-while(True):
-    readButtons()
