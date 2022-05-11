@@ -32,7 +32,7 @@ class Board:
         count = 0
         for row in self._grid:
             for column in row:
-                if column.is_alive:
+                if column.is_alive():
                     count += 1
         return count
 
