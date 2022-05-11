@@ -1,11 +1,13 @@
 from board import Board
-from utils import readButtons
+from utils import readButtons, setDisplay
 
 def main():
     #assume the user types in a number
     print('Seja bem-vindo')
     user_rows = int(input('Quantas linhas? '))
     user_columns = int(input('Quantas colunas? '))
+
+    setDisplay('left', 3030)
 
     # create a board:
     game_of_life_board = Board(user_rows,user_columns)
