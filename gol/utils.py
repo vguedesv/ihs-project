@@ -83,5 +83,5 @@ def setDisplay(side, num):
         hex_data = hex(data)
         print(hex_data)
         ioctl(fd, WR_L_DISPLAY)
-        retval = os.write(fd, data.to_bytes(4, 'little'))
+        retval = os.write(fd, hex_data.to_bytes(4, 'little'))
     
