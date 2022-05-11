@@ -8,15 +8,25 @@ fd = os.open('/dev/mydev', os.O_RDWR) #substituir pelo caminho do arquivo
 def readButtons():
     print('estou na readButtons')
     ioctl(fd, RD_PBUTTONS)
-    red = os.read(fd, 4) # read 4 bytes and store in red var
-    pressedButton  = int.from_bytes(red, 'little')
+    button = os.read(fd, 4) # read 4 bytes and store in button var
+    pressedButton  = int.from_bytes(button, 'little')
+
+    ioctl(fd, RD_SWITCHES)
+    switch = os.read(fd, 4)
+    switchOldState = int.from_bytes(switch, 'little')
+    switchNewState = switchOldState
     print(pressedButton)
-    while(pressedButton == 15):
+    while(pressedButton == 15 and switchOldState == switchNewState):
         ioctl(fd, RD_PBUTTONS)
-        red = os.read(fd, 4)
-        pressedButton = int.from_bytes(red, 'little')
+        button = os.read(fd, 4)
+        pressedButton = int.from_bytes(button, 'little')
+        ioctl(fd, RD_SWITCHES)
+        switch = os.read(fd, 4)
+        switchNewState = int.from_bytes(switch, 'little')
         time.sleep(0.2)
     
+    switchOldState = switchNewState
+
     match pressedButton:
         case 7:
             return 'up'
@@ -27,6 +37,15 @@ def readButtons():
         case 14:
             return 'right'
         case _:
+            break
+    
+    match switchNewState:
+        case 1:
+            return: 'space'
+        case 2:
+            return: 'enter'
+        case 3:
+            return 'enter'
+        case _:
             return ''
-
 
