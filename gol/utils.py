@@ -41,9 +41,9 @@ def readButtons():
     
     match switchNewState:
         case 1:
-            return: 'space'
+            return 'space'
         case 2:
-            return: 'enter'
+            return 'enter'
         case 3:
             return 'enter'
         case _:
