@@ -1,19 +1,21 @@
 import os, sys
 from fcntl import ioctl
 from ioctl_cmds import *
+import time
 
 fd = os.open('/dev/mydev', os.O_RDWR) #substituir pelo caminho do arquivo
 
 def readButtons():
     print('estou na readButtons')
     ioctl(fd, RD_PBUTTONS)
-    red = os.read(fd, 4); # read 4 bytes and store in red var
+    red = os.read(fd, 4) # read 4 bytes and store in red var
     pressedButton  = int.from_bytes(red, 'little')
     print(pressedButton)
     while(pressedButton == 15):
         ioctl(fd, RD_PBUTTONS)
-        red = os.read(fd, 4);
+        red = os.read(fd, 4)
         pressedButton = int.from_bytes(red, 'little')
+        time.sleep(0.4)
     
     match pressedButton:
         case 7:
