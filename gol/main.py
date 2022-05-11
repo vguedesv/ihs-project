@@ -2,6 +2,7 @@ from board import Board
 
 def main():
     #assume the user types in a number
+    print('oi')
     user_rows = int(input('Quantas linhas? '))
     user_columns = int(input('Quantas colunas? '))
 

@@ -6,7 +6,7 @@ Martin A. Aaberge
 
 from cell import Cell
 from random import randint
-import keyboard
+# import keyboard
 from utils import readButtons
 
 class Board:
