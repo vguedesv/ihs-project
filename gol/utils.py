@@ -78,7 +78,7 @@ def setDisplay(side, num):
     if(side is 'left'):
         algs = list(num)
         print(algs)
-        dataString = algs[0] + algs[1] + algs[2] + algs[3]
+        dataString = HEX_NUMBERS[algs[0]] + HEX_NUMBERS[algs[1]] + HEX_NUMBERS[algs[2]] + HEX_NUMBERS[algs[3]]
         data = int(dataString)
         print(data)
         ioctl(fd, WR_L_DISPLAY)
