@@ -79,7 +79,7 @@ def setDisplay(side, num):
         algs = list(num)
         print(algs)
         dataString = algs[0] + algs[1] + algs[2] + algs[3]
-        data = hex(dataString)
+        data = int(dataString)
         print(data)
         ioctl(fd, WR_L_DISPLAY)
         retval = os.write(fd, data.to_bytes(4, 'little'))
