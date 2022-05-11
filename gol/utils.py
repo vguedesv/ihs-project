@@ -119,7 +119,6 @@ def setDisplay(side, num):
     if(side is 'left'):        
         ioctl(fd, WR_L_DISPLAY)
         retval = os.write(fd, data.to_bytes(4, 'little'))
-    else:
         
 
     
