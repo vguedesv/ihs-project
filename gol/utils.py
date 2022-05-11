@@ -47,7 +47,7 @@ def readButtons():
         data = 0x1F0;
         ioctl(fd, WR_GREEN_LEDS)
         retval = os.write(fd, data.to_bytes(4, 'little'))
-        print("wrote %d bytes"%retval)
+        # print("wrote %d bytes"%retval)
         ioctl(fd, RD_SWITCHES)
         switch = os.read(fd, 4)
         switchNewState = int.from_bytes(switch, 'little')
