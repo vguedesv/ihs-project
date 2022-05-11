@@ -36,6 +36,8 @@ def readButtons():
             return 'left'
         case 14:
             return 'right'
+        case 12:
+            return 'esc'
             
     
     match switchNewState:
@@ -48,3 +50,5 @@ def readButtons():
         case _:
             return ''
 
+
+def setDisplay(num):

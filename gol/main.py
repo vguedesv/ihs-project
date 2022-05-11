@@ -1,8 +1,9 @@
 from board import Board
+from utils import readButtons
 
 def main():
     #assume the user types in a number
-    print('oi')
+    print('Seja bem-vindo')
     user_rows = int(input('Quantas linhas? '))
     user_columns = int(input('Quantas colunas? '))
 
@@ -13,11 +14,14 @@ def main():
     game_of_life_board.draw_board([-1, -1])
     #game_of_life_board.update_board()
 
-    user_action = ''
-    while user_action != 'q':
-        user_action = input('Pressione ENTER para avançar uma geração ou Q para sair')
+    userAction = ''
+   
+    while userAction != 'esc':
+        print('Empurre a alavanca 2 para avançar de geração')
+        print('Pressione os botões de esquerda e direita simultaneamente para sair')
+        userAction = readButtons()
 
-        if user_action == '':
+        if userAction == '':
             game_of_life_board.update_board()
             game_of_life_board.draw_board([-1, -1])
 
