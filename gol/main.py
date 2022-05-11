@@ -28,7 +28,7 @@ def main():
             game_of_life_board.update_board()
             livingCells = game_of_life_board.count_live_cells()
             # print(livingCells)
-            setDisplay('right', str(livingCells))
+            # setDisplay('right', str(livingCells))
             game_of_life_board.draw_board([-1, -1])
 
 
