@@ -28,6 +28,7 @@ def main():
             game_of_life_board.update_board()
             livingCells = game_of_life_board.count_live_cells()
             print(livingCells)
+            setDisplay('right', livingCells.zfill(4))
             game_of_life_board.draw_board([-1, -1])
 
 
