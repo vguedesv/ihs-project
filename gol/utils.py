@@ -40,9 +40,7 @@ def readButtons():
     switchNewState = switchOldState
     print(pressedButton)
     while(pressedButton == 15 and switchOldState == switchNewState):
-        data = 0b11;
-        ioctl(fd, WR_GREEN_LEDS)
-        retval = os.write(fd, data.to_bytes(4, 'little'))
+        
         ioctl(fd, RD_PBUTTONS)
         button = os.read(fd, 4)
         pressedButton = int.from_bytes(button, 'little')
