@@ -36,8 +36,7 @@ def readButtons():
             return 'left'
         case 14:
             return 'right'
-        case _:
-            break
+            
     
     match switchNewState:
         case 1:
