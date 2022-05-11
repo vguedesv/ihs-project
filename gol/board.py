@@ -19,7 +19,7 @@ class Board:
         '''
         method that draws the actual board in the terminal
         '''
-        # print('\n'*10)
+        print('\n'*5)
         # print('Novo campo')
         for indexR, row in enumerate(self._grid):
             for indexC, column in enumerate(row):
