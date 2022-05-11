@@ -3,6 +3,29 @@ from fcntl import ioctl
 from ioctl_cmds import *
 import time
 
+
+HEX_NUMBERS = [
+'C0',
+'F9',
+'A4',
+'B0',
+'99',
+'92',
+'82',
+'F8',
+'80',
+'90',
+'88',
+'83',
+'C6',
+'A1',
+'86',
+'8E',
+'89', #h
+'8e' #l
+]
+
+
 fd = os.open('/dev/mydev', os.O_RDWR) #substituir pelo caminho do arquivo
 
 def readButtons():
@@ -51,4 +74,12 @@ def readButtons():
             return ''
 
 
-# def setDisplay(num):
+def setDisplay(side, num):
+    if(side is 'left'):
+        algs = str(num).split()
+        dataString = algs[0] + algs[1] + algs[2] + algs[3]
+        data = hex(dataString)
+        print(data)
+        ioctl(fd, WR_L_DISPLAY)
+        retval = os.write(fd, data.to_bytes(4, 'little'))
+    
