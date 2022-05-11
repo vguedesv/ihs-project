@@ -9,16 +9,16 @@ def readButtons():
     red = os.read(fd, 4); # read 4 bytes and store in red var
     pressedButton  = int.from_bytes(red, 'little')
     match pressedButton:
-    case 7:
-        return 'up'
-    case 11:
-        return 'down'
-    case 13:
-        return 'left'
-    case 14:
-        return 'right'
-    case _:
-        return ''
+        case 7:
+            return 'up'
+        case 11:
+            return 'down'
+        case 13:
+            return 'left'
+        case 14:
+            return 'right'
+        case _:
+            return ''
 
     print(red)
 
