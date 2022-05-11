@@ -15,7 +15,7 @@ def readButtons():
         ioctl(fd, RD_PBUTTONS)
         red = os.read(fd, 4)
         pressedButton = int.from_bytes(red, 'little')
-        time.sleep(0.4)
+        time.sleep(0.1)
     
     match pressedButton:
         case 7:
