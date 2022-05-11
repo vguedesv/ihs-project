@@ -11,5 +11,5 @@ def readButtons():
     print(red)
 
 
-while(true):
+while(True):
     readButtons()
