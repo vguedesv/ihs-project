@@ -44,9 +44,6 @@ def readButtons():
         ioctl(fd, RD_PBUTTONS)
         button = os.read(fd, 4)
         pressedButton = int.from_bytes(button, 'little')
-        data = 0x1F0;
-        ioctl(fd, WR_GREEN_LEDS)
-        retval = os.write(fd, data.to_bytes(4, 'little'))
         # print("wrote %d bytes"%retval)
         ioctl(fd, RD_SWITCHES)
         switch = os.read(fd, 4)
@@ -57,6 +54,9 @@ def readButtons():
 
     match pressedButton:
         case 7:
+            data = 0x1F0;
+            ioctl(fd, WR_GREEN_LEDS)
+            retval = os.write(fd, data.to_bytes(4, 'little'))
             return 'up'
         case 11:
             return 'down'
