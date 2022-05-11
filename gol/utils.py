@@ -9,6 +9,7 @@ def readButtons():
     ioctl(fd, RD_PBUTTONS)
     red = os.read(fd, 4); # read 4 bytes and store in red var
     pressedButton  = int.from_bytes(red, 'little')
+    print(pressedButton)
     while(pressedButton == 15):
         pressedButton = int.from_bytes(red, 'little')
     match pressedButton:
