@@ -60,7 +60,7 @@ def readButtons():
         case 13:
             return 'left'
         case 14:
-            print('oiiiii')
+            ioctl(fd, WR_GREEN_LEDS)
             temp = 3
             os.write(fd, temp.to_bytes(4, 'little'))
             time.sleep(0.5)
