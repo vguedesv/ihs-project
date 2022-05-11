@@ -94,9 +94,9 @@ def readButtons():
             return 'space'
         case 2:
             ioctl(fd, WR_RED_LEDS)
-            temp = 255
+            temp = 0x3FFFF
             os.write(fd, temp.to_bytes(4, 'little'))
-            time.sleep(0.3)
+            time.sleep(0.5)
             temp = 0
             os.write(fd, temp.to_bytes(4, 'little'))
             return 'enter'
