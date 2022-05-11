@@ -6,7 +6,7 @@ Martin A. Aaberge
 
 from cell import Cell
 from random import randint
-# import keyboard
+import keyboard
 from utils import readButtons
 
 class Board:
@@ -58,7 +58,7 @@ class Board:
                 # print(selectedCell.is_alive())
             # print(underlineCoord )
             self.draw_board(underlineCoord)
-            userInput = readButtons()
+            userInput = keyboard.read_hotkey(suppress=False)
 
 
         # for row in self._grid:
