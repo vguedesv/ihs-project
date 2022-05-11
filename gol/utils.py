@@ -54,16 +54,34 @@ def readButtons():
 
     match pressedButton:
         case 7:
+            ioctl(fd, WR_GREEN_LEDS)
+            temp = 192
+            os.write(fd, temp.to_bytes(4, 'little'))
+            time.sleep(0.5)
+            temp = 0
+            os.write(fd, temp.to_bytes(4, 'little'))
             return 'up'
         case 11:
+            ioctl(fd, WR_GREEN_LEDS)
+            temp = 48
+            os.write(fd, temp.to_bytes(4, 'little'))
+            time.sleep(0.5)
+            temp = 0
+            os.write(fd, temp.to_bytes(4, 'little'))
             return 'down'
         case 13:
+            ioctl(fd, WR_GREEN_LEDS)
+            temp = 12
+            os.write(fd, temp.to_bytes(4, 'little'))
+            time.sleep(0.5)
+            temp = 0
+            os.write(fd, temp.to_bytes(4, 'little'))
             return 'left'
         case 14:
             ioctl(fd, WR_GREEN_LEDS)
             temp = 3
             os.write(fd, temp.to_bytes(4, 'little'))
-            time.sleep(0.5)
+            time.sleep(0.3)
             temp = 0
             os.write(fd, temp.to_bytes(4, 'little'))
             return 'right'
