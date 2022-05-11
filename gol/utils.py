@@ -29,7 +29,7 @@ HEX_NUMBERS = [
 fd = os.open('/dev/mydev', os.O_RDWR) #substituir pelo caminho do arquivo
 
 def readButtons():
-    print('estou na readButtons')
+    # print('estou na readButtons')
     ioctl(fd, RD_PBUTTONS)
     button = os.read(fd, 4) # read 4 bytes and store in button var
     pressedButton  = int.from_bytes(button, 'little')
@@ -40,6 +40,10 @@ def readButtons():
     switchNewState = switchOldState
     print(pressedButton)
     while(pressedButton == 15 and switchOldState == switchNewState):
+        data = 0b11;
+        ioctl(fd, WR_RED_LEDS)
+        retval = os.write(fd, data.to_bytes(4, 'little'))
+        print("wrote %d bytes"%retval)
         ioctl(fd, RD_PBUTTONS)
         button = os.read(fd, 4)
         pressedButton = int.from_bytes(button, 'little')
