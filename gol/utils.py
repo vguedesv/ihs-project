@@ -38,7 +38,7 @@ def readButtons():
     switch = os.read(fd, 4)
     switchOldState = int.from_bytes(switch, 'little')
     switchNewState = switchOldState
-    print(pressedButton)
+    # print(pressedButton)
     while(pressedButton == 15 and switchOldState == switchNewState):
 
         ioctl(fd, RD_PBUTTONS)
