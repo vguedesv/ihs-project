@@ -28,6 +28,14 @@ class Board:
                 # print (indexR, indexC)
             print () # to create a new line pr. row.
 
+    def count_live_cells(self):
+        count = 0
+        for row in self._grid:
+            for column in row:
+                if column.is_alive:
+                    count += 1
+        return count
+
     def _generate_board(self):
         '''
         method that sets the random state of all cells.

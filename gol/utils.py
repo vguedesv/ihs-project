@@ -75,13 +75,17 @@ def readButtons():
 
 
 def setDisplay(side, num):
-    if(side is 'left'):
-        algs = list(num)
-        print(algs)
-        dataString = '0x' + HEX_NUMBERS[int(algs[0])] + HEX_NUMBERS[int(algs[1])] + HEX_NUMBERS[int(algs[2])] + HEX_NUMBERS[int(algs[3])]
-        data = int(dataString, 16)
-        # hex_data = hex(data)
-        print(data)
+    algs = list(num)
+    print(algs)
+    dataString = '0x' + HEX_NUMBERS[int(algs[0])] + HEX_NUMBERS[int(algs[1])] + HEX_NUMBERS[int(algs[2])] + HEX_NUMBERS[int(algs[3])]
+    data = int(dataString, 16)
+    # hex_data = hex(data)
+    print(data)
+    if(side is 'left'):        
         ioctl(fd, WR_L_DISPLAY)
         retval = os.write(fd, data.to_bytes(4, 'little'))
+    else:
+        ioctl(fd, WR_R_DISPLAY)
+        retval = os.write(fd, data.to_bytes(4, 'little'))
+
     
