@@ -11,7 +11,10 @@ def readButtons():
     pressedButton  = int.from_bytes(red, 'little')
     print(pressedButton)
     while(pressedButton == 15):
+        ioctl(fd, RD_PBUTTONS)
+        red = os.read(fd, 4);
         pressedButton = int.from_bytes(red, 'little')
+    
     match pressedButton:
         case 7:
             return 'up'
