@@ -108,7 +108,7 @@ def readButtons():
 
 def setDisplay(side, num):
     algs = list(num.zfill(4))
-    print(algs)
+    # print(algs)
     dataString = '0x' + HEX_NUMBERS[int(algs[0])] + HEX_NUMBERS[int(algs[1])] + HEX_NUMBERS[int(algs[2])] + HEX_NUMBERS[int(algs[3])]
     data = int(dataString, 16)
     # hex_data = hex(data)
