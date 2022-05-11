@@ -51,4 +51,4 @@ def readButtons():
             return ''
 
 
-def setDisplay(num):
+# def setDisplay(num):
