@@ -19,8 +19,8 @@ class Board:
         '''
         method that draws the actual board in the terminal
         '''
-        print('\n'*10)
-        print('Novo campo')
+        # print('\n'*10)
+        # print('Novo campo')
         for indexR, row in enumerate(self._grid):
             for indexC, column in enumerate(row):
                 actualCoord = [indexR, indexC]
@@ -32,7 +32,7 @@ class Board:
         count = 0
         for row in self._grid:
             for column in row:
-                if column.is_alive():
+                if column.is_alive:
                     count += 1
         return count
 
