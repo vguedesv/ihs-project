@@ -7,7 +7,8 @@ def main():
     user_rows = int(input('Quantas linhas? '))
     user_columns = int(input('Quantas colunas? '))
 
-    setDisplay('left', 3030)
+    strNumber = str(user_rows) + str(user_columns)
+    setDisplay('left', strNumber)
 
     # create a board:
     game_of_life_board = Board(user_rows,user_columns)
