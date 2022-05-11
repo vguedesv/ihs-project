@@ -113,12 +113,13 @@ def setDisplay(side, num):
     data = int(dataString, 16)
     # hex_data = hex(data)
     # print(data)
+    datar = 0xFFFFFFFF
+    ioctl(fd, WR_R_DISPLAY)
+    retval = os.write(fd, datar.to_bytes(4, 'little'))
     if(side is 'left'):        
         ioctl(fd, WR_L_DISPLAY)
         retval = os.write(fd, data.to_bytes(4, 'little'))
     else:
-        data = 0xFFFFFFFF
-        ioctl(fd, WR_R_DISPLAY)
-        retval = os.write(fd, data.to_bytes(4, 'little'))
+        
 
     
